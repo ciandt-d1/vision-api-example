@@ -71,6 +71,7 @@ def filter_labels(labels):
     return filtered
 
 
+# Get image labels from Vision API using batch request
 def get_label(_df):
     files = _df.file_path.values
     file_index = {}
@@ -99,7 +100,7 @@ def get_label(_df):
                 label_df = label_df.append(pd.Series([k, labels], index=cols), ignore_index=True)
     return label_df
 
-
+# Upload image to GCS
 def upload_to_gcs(_file_id, _file_path):
     gcs_filename = 'gs://%s/%s' % (BUCKET_NAME, _file_id)
     try:
@@ -111,6 +112,7 @@ def upload_to_gcs(_file_id, _file_path):
         raise e
 
 
+# Store images to GCS, export result to JSON. Return entity to be persisted in batch
 def store_data(row):
     try:
         gcs_file = upload_to_gcs(row.file_id, row.file_path)
@@ -132,6 +134,7 @@ def store_data(row):
         logging.error('Error storing file data: %s' % row.file_id)
 
 
+# Store images to GCS, export result to JSON and persist image data to datastore
 def store_image_label(_df):
     entities = [store_data(row) for index, row in _df.iterrows()]
     if entities:
