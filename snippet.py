@@ -22,7 +22,7 @@ args = parser.parse_args()
 
 SCORE_THRESHOLD = 0.7
 IMAGE_FOLDER = 'images'
-MAX_BATCH_SIZE = 9
+MAX_BATCH_SIZE = 16
 BUCKET_NAME = 'vision-api-example'
 ENTITY_TYPE = 'ImageLabel'
 NAMESPACE = 'vision-api-example'
