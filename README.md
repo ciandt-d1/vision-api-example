@@ -15,6 +15,8 @@ This simple code example demonstrates how to use the Google Vision API to tag im
     ```
 
 3. Check results:
+    This example saves image tags to Google Cloud Datastore and uploads the image to Google Cloud Storage. This can be useful to build an extension to allow searching images by tags.
+
     * Datastore:
       ![alt text](https://storage.googleapis.com/vision-api-example/staging/datastore.png)
 
