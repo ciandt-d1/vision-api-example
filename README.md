@@ -13,3 +13,12 @@ This simple code example demonstrates how to use the Google Vision API to tag im
     export PROJECT=your-gcp-project
     python3 snippet.py ${PROJECT} images/dataset.csv --export_json True
     ```
+
+3. Check results:
+    * Datastore:
+      ![alt text](https://storage.googleapis.com/vision-api-example/staging/datastore.png)
+
+    * GCS:
+      ![alt text](https://storage.googleapis.com/vision-api-example/staging/gcs.png)
+
+    * JSON files containing image tags will be exported to 'output' folder if the flag '--export_json' is True.
